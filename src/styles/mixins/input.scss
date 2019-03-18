@@ -1,0 +1,120 @@
+@import "../variables";
+
+@mixin addon() {
+  text-align: center;
+  display: table-cell;
+  vertical-align: middle;
+  background-color: #eee;
+  color: $--input-addon-color;
+  font-size: 14px;
+  width: 1px;
+  white-space: nowrap;
+
+  .s-button--default {
+    background-color: #eee;
+    color: $--input-addon-color;
+
+    &:hover {
+      background-color: lighten($--border-color-base, 2%);
+    }
+
+    &:active {
+      background-color: darken($--border-color-base, 5%);
+    }
+  }
+
+  .s-button--default.is-disabled {
+    background-color: lighten($--border-color-base, 2%);
+    color: lighten($--button-disabled-color, 5%);
+
+    &:hover {
+      background-color: lighten($--border-color-base, 2%);
+    }
+
+    &:active {
+      background-color: lighten($--border-color-base, 2%);
+    }
+  }
+
+  .s-button {
+    border: none;
+    margin: 0;
+    margin-left: -1px;
+    height: 100%;
+    border-radius: 0;
+    padding: $--input-addon-padding;
+
+    + .s-button {
+      margin: 0;
+    }
+
+    i {
+      padding: 0;
+    }
+  }
+
+  i {
+    padding: $--input-addon-padding;
+  }
+
+  p {
+    margin: 0;
+    padding: $--input-addon-padding;
+    display: inline;
+    user-select: none;
+  }
+}
+
+@mixin fixInputBorder($var) {
+  @if ($var == 'prefix') {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  } @else {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+}
+
+@mixin inputIcon() {
+  height: 100%;
+  position: absolute;
+  width: $--input-icon-width;
+  top: 0;
+  text-align: center;
+  i {
+    color: $--color-text-placeholder;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
+@mixin input-size($height, $fontSize) {
+  height: $height;
+  min-height: $height;
+  & .s-select__input,
+  & .s-cascader__input {
+    font-size: $fontSize;
+    line-height: $height - 2;
+    height: $height - 2;
+  }
+  & .s-datepicker__input {
+    height: $height - 2;
+  }
+
+  & .s-timepicker__input {
+    height: $height - 2;
+  }
+}
+
+@mixin input-number-border ($border-color) {
+  border-color: $border-color;
+  &:hover {
+    border-color: $border-color;
+  }
+
+  &.is-focused {
+    border-color: $border-color;
+  }
+}

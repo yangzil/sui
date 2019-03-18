@@ -1,0 +1,21 @@
+@mixin select-input-variant{
+  display: inline-block;
+  box-sizing: border-box;
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  background-color: $--select-fill-color;
+  border-radius: $--select-input-radius;
+  border: $--border-base;
+  transition: border-color .2s, box-shadow .2s, transform .2s;
+
+  &:hover {
+    border-color: $--select-input-hover-border-color;
+    //box-shadow: $--box-shadow-base;
+    //transform: translateY(-2px);
+  }
+
+  @include when(focus) {
+    border-color: $--color-primary;
+  }
+}

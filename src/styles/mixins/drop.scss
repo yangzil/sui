@@ -1,0 +1,48 @@
+@mixin drop-variant() {
+  z-index: $--select-list-index;
+  transition: all .2s;
+  width: auto;
+  min-width: 155px;
+  position: relative;
+  background-color: #fff;
+  line-height: 40px;
+  list-style: none;
+  height: 200px;
+  max-height: 200px;
+  overflow: scroll;
+  float: left;
+  display: inline-block;
+  border: none;
+}
+
+@mixin drop-arrow() {
+  @include e(arrow-up) {
+    position: absolute;
+    display: inline-block;
+    width: 0;
+    height: 0;
+    content: '';
+    border-style: solid;
+    border-width: 5px;
+    border-color: #fff #fff transparent transparent;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    -webkit-box-shadow: 1px -1px 1px #ccc;
+    box-shadow: 1px -1px 1px #ccc;
+    top: -3px;
+    left: 25px;
+    z-index: $--select-list-index + 1;
+    transition: opacity .2s;
+
+    @include m(right) {
+      right: 25px;
+      left: auto;
+    }
+
+    @include m(top) {
+      top: auto;
+      bottom: -4px;
+      transform: rotate(135deg);
+    }
+  }
+}
