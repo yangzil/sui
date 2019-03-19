@@ -22,6 +22,7 @@
 <script>
 export default {
 	name: 's-button',
+
 	props: {
 		type: {
 			type: String,
@@ -33,11 +34,13 @@ export default {
 		round: Boolean,
 		circle: Boolean,
 	},
+
 	data () {
 		return {
 			classPrefix: 's-button--'
 		}
 	},
+	
 	methods: {
 		handleClick (e) {
 			this.$emit('click', e)
